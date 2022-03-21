@@ -33,7 +33,8 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
+const store = useStore()
 const formData = ref({
   username: 'admin',
   password: '123456'
@@ -42,14 +43,12 @@ const rules = ref({
   username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
   password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
 })
-const router = useRouter()
 const formRef = ref(null)
 const onSubmit = () => {
-  formRef.value.validate((valid) => {
+  formRef.value.validate(async (valid) => {
     if (valid) {
-      Post('login', formData.value).then((res) => {
-        router.push('/')
-      })
+      //调用vuex 传入参数 触发登录
+      store.dispatch('app/login', formData.value)
     } else {
       return false
     }
@@ -59,7 +58,7 @@ const onSubmit = () => {
 <style lang="scss" scoped>
 .logincontainer {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: #2b3a4b;
   overflow: hidden;
   text-align: center;

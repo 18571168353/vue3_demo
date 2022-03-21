@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import layout from '@/layout/index'
+import store from '@/store'
 const routes = [
   {
     path: '/',
@@ -61,4 +62,21 @@ const router = createRouter({
   routes
 })
 
+// 路由导航守卫
+const whiteList = ['/login'] //白名单
+router.beforeEach((to, from, next) => {
+  if (store.getters.token) {
+    if (to.path === '/login') {
+      next('/')
+    } else {
+      next()
+    }
+  } else {
+    if (whiteList.includes(to.path)) {
+      next()
+    } else {
+      next('/login')
+    }
+  }
+})
 export default router
