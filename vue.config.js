@@ -52,15 +52,16 @@ module.exports = defineConfig({
       })
       .end()
   },
+  publicPath: './',
   devServer: {
     https: false,
     hot: false,
     proxy: {
-      '/api': {
+      '/api/': {
         target: 'https://lianghj.top:8888/api/private/v1/',
         changeOrigin: true,
         pathRewrite: {
-          '^/api': ''
+          '^/api/': ''
         }
       }
     }

@@ -5,18 +5,17 @@ const service = axios.create({
   baseURL,
   timeout: 5000
 })
-console.log(baseURL);
 // 请求拦截器
 axios.interceptors.request.use(
-	(config) => {
-		if (localStorage.getItem('token')) {
-			config.headers.Authorization = localStorage.getItem('token')
-		}
-		return config
-	},
-	(error) => {
+  (config) => {
+    if (localStorage.getItem('token')) {
+      config.headers.Authorization = localStorage.getItem('token')
+    }
+    return config
+  },
+  (error) => {
     return Promise.reject(new Error(error))
-	}
+  }
 )
 // 响应拦截器
 axios.interceptors.response.use(

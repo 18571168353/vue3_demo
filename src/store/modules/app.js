@@ -13,7 +13,7 @@ export default {
   actions: {
     login({ commit }, userInfo) {
       return new Promise((resolve, reject) => {
-        Post('/login', userInfo)
+        Post('login', userInfo)
           .then((res) => {
             console.log(res)
             commit('setToken', res.token)

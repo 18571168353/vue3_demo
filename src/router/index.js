@@ -58,6 +58,7 @@ const routes = [
 ]
 
 const router = createRouter({
+  mode: 'hash',
   history: createWebHashHistory(),
   routes
 })
@@ -66,8 +67,8 @@ const router = createRouter({
 const whiteList = ['/login'] //白名单
 router.beforeEach((to, from, next) => {
   if (store.getters.token) {
-    if (to.path === '/login') {
-      next('/')
+    if (to.path === 'login') {
+      next('/login')
     } else {
       next()
     }
