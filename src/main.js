@@ -3,10 +3,15 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import App from './App.vue'
 import router from './router'
+// import '@/styles/index.scss'
 import store from './store'
 import SvgIcon from '@/icons'
-import { Post,Get,Put,Delete } from '@/utils/request'
+import * as ELIcons from '@element-plus/icons-vue'
+import { Post, Get, Put, Delete } from '@/utils/request'
 const app = createApp(App)
+for (const iconName in ELIcons) {
+  app.component(iconName, ELIcons[iconName])
+}
 SvgIcon(app)
 window.Post = Post
 window.Get = Get
