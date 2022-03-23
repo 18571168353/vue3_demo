@@ -1,6 +1,8 @@
 <template>
   <el-container class="app-wrapper">
-    <el-aside :width="asideWidth"><Menu></Menu></el-aside>
+    <el-aside :width="asideWidth">
+      <Menu></Menu>
+    </el-aside>
     <el-container
       class="container"
       :class="{ hidderContainer: !$store.getters.siderType }"
@@ -28,30 +30,28 @@ const asideWidth = computed(() => {
   position: relative;
   height: 100%;
   width: 100%;
-  flex: 1;
   overflow: hidden;
   .head {
     padding: 0px;
     height: 70px;
   }
   .el-aside {
-    // height: 100%;
+    transition: width 0.28s;
+    background-color: #304156;
     ul {
       height: 100%;
+      border-right: none;
     }
   }
 }
 .container {
   height: 100%;
-  position: fixed;
-  width: 100%;
-  width: calc(100% - 300px);
   top: 0;
   right: 0;
   z-index: 9;
+  transition: width 0.38s;
 }
 .hidderContainer {
-  // transition: width 0.27s;
-  width: calc(100% - 63px);
+  transition: width 0.38s;
 }
 </style>

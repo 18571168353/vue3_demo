@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-import { ref,computed } from 'vue'
+import { ref, computed } from 'vue'
 const menulist = ref([])
 const defaultactive = ref(sessionStorage.getItem('path') || '/users')
 const iconslist = ref(['user', 'setting', 'shop', 'tickets', 'pie-chart'])
@@ -45,8 +45,8 @@ const initMenuList = () => {
 }
 const savepath = (path) => {
   sessionStorage.setItem('path', `/${path}`)
-  // defaultactive.value = '/' + path
 }
 initMenuList()
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+</style>
