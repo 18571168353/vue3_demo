@@ -7,14 +7,16 @@ import store from './store'
 import SvgIcon from '@/icons'
 import i18n from '@/i18n'
 import * as ELIcons from '@element-plus/icons-vue'
-import { Post, Get, Put, Delete } from '@/utils/request'
+import filters from './utils/filters'
+// import { Post, Get, Put, Delete } from '@/utils/request'
 const app = createApp(App)
 for (const iconName in ELIcons) {
   app.component(iconName, ELIcons[iconName])
 }
 SvgIcon(app)
-window.Post = Post
-window.Get = Get
-window.Put = Put
-window.Delete = Delete
+filters(app)
+// window.Post = Post
+// window.Get = Get
+// window.Put = Put
+// window.Delete = Delete
 app.use(store).use(router).use(ElementPlus).use(i18n).mount('#app')

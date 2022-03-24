@@ -34,18 +34,17 @@
 
 <script setup>
 import { ref } from 'vue'
+import { menuList } from '@/api/menu'
 const menulist = ref([])
 const defaultactive = ref(sessionStorage.getItem('path') || '/users')
 const iconslist = ref(['user', 'setting', 'shop', 'tickets', 'pie-chart'])
 const menu = ref('menu')
-const initMenuList = () => {
-  Get('menus').then((res) => {
-    menulist.value = res
-  })
+const initMenusList = async () => {
+  menulist.value = await menuList()
 }
 const savepath = (path) => {
   sessionStorage.setItem('path', `/${path}`)
 }
-initMenuList()
+initMenusList()
 </script>
 <style lang="scss" scoped></style>

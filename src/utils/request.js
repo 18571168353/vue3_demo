@@ -8,7 +8,7 @@ const service = axios.create({
   timeout: 5000
 })
 // 请求拦截器
-axios.interceptors.request.use(
+service.interceptors.request.use(
   (config) => {
     if (localStorage.getItem('token')) {
       if (diffTokenTime()) {
@@ -24,7 +24,7 @@ axios.interceptors.request.use(
   }
 )
 // 响应拦截器
-axios.interceptors.response.use(
+service.interceptors.response.use(
   (response) => {
     const { data, meta } = response.data
     if (meta.status === 200 || meta.status === 201) {
@@ -41,36 +41,38 @@ axios.interceptors.response.use(
 )
 
 // post请求
-export const Post = (url, data) => {
-  return axios({
-    method: 'POST',
-    url: `${baseURL}${url}`,
-    data
-  })
-}
+// export const Post = (url, data) => {
+//   return axios({
+//     method: 'POST',
+//     url: `${baseURL}${url}`,
+//     data
+//   })
+// }
+
 // put请求
-export const Put = (url, data) => {
-  return axios({
-    method: 'put',
-    url: `${baseURL}${url}`,
-    data
-  })
-}
+// export const Put = (url, data) => {
+//   return axios({
+//     method: 'put',
+//     url: `${baseURL}${url}`,
+//     data
+//   })
+// }
+
 // get请求
-export const Get = (url, params) => {
-  return axios({
-    method: 'get',
-    url: `${baseURL}${url}`,
-    params
-  })
-}
+// export const Get = (url, params) => {
+//   return axios({
+//     method: 'get',
+//     url: `${baseURL}${url}`,
+//     params
+//   })
+// }
 
 // delete请求
-export const Delete = (url, params) => {
-  return axios({
-    method: 'delete',
-    url: `${baseURL}${url}`,
-    params
-  })
-}
+// export const Delete = (url, params) => {
+//   return axios({
+//     method: 'delete',
+//     url: `${baseURL}${url}`,
+//     params
+//   })
+// }
 export default service

@@ -21,4 +21,13 @@ body {
 #app {
   height: 100%;
 }
+div#driver-popover-item .driver-popover-title {
+  color: #1890ff;
+}
+div#driver-popover-item .driver-popover-footer .driver-next-btn {
+  background-color: #1890ff;
+  color: white;
+  text-shadow: none;
+  border-radius: 4px;
+}
 </style>

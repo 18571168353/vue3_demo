@@ -1,5 +1,6 @@
 import router from '@/router'
 import { setTokenTime } from '@/utils/tokentime'
+import { login as loginApi } from '@/api/login'
 export default {
   namespaced: true,
   state: () => ({
@@ -22,7 +23,7 @@ export default {
   actions: {
     login({ commit }, userInfo) {
       return new Promise((resolve, reject) => {
-        Post('login', userInfo)
+        loginApi(userInfo)
           .then((res) => {
             commit('setToken', res.token)
             setTokenTime()

@@ -1,6 +1,6 @@
 <template>
   <div class="hamburger">
-    <svg-icon :icon="icon" @click="changeType"></svg-icon>
+    <svg-icon id="hamburger" :icon="icon" @click="changeType"></svg-icon>
   </div>
 </template>
 
@@ -17,7 +17,7 @@ const icon = computed(()=>{
 </script>
 <style lang="scss" scoped>
 .hamburger {
-  margin-left: 16px;
+  margin-left: 10px;
   cursor: pointer;
   line-height: 70px;
 }
