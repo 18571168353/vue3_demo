@@ -18,14 +18,14 @@
         <el-icon>
           <component :is="iconslist[index]"></component>
         </el-icon>
-        <span>{{ item.authName }}</span>
+        <span>{{item.authName }}</span>
       </template>
       <el-menu-item-group v-for="(ite, ind) in item.children" :key="ind">
         <el-menu-item :index="'/' + ite.path" @click="savepath(ite.path)">
           <el-icon>
             <component :is="menu"></component>
           </el-icon>
-          {{ ite.authName }}
+          {{ $t(`menus.${ite.path}`) }}
         </el-menu-item>
       </el-menu-item-group>
     </el-sub-menu>
@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 const menulist = ref([])
 const defaultactive = ref(sessionStorage.getItem('path') || '/users')
 const iconslist = ref(['user', 'setting', 'shop', 'tickets', 'pie-chart'])
@@ -48,5 +48,4 @@ const savepath = (path) => {
 }
 initMenuList()
 </script>
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

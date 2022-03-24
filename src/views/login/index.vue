@@ -1,7 +1,7 @@
 <template>
   <div class="logincontainer">
     <el-form ref="formRef" class="formbox" :model="formData" :rules="rules">
-      <div class="title"><h3>用户登陆</h3></div>
+      <div class="title"><h3>{{$t('login.title')}}</h3></div>
       <el-form-item prop="username">
         <svg-icon class="iconsvg" icon="user"></svg-icon>
         <el-input
@@ -24,7 +24,7 @@
           style="width: 100%; height: 47px"
           type="primary"
           @click="onSubmit"
-          >登陆</el-button
+          >{{$t('login.btnTitle')}}</el-button
         >
       </el-form-item>
     </el-form>

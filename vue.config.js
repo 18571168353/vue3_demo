@@ -7,6 +7,7 @@ const webpack = require('webpack')
 module.exports = defineConfig({
   lintOnSave: false,
   chainWebpack(config) {
+    config.resolve.alias.set('vue-i18n', 'vue-i18n/dist/vue-i18n.cjs.js')
     // 设置 svg-sprite-loader
     // config 为 webpack 配置对象
     // config.module 表示创建一个具名规则，以后用来修改规则

@@ -70,6 +70,7 @@ router.beforeEach((to, from, next) => {
     if (to.path === 'login') {
       next('/login')
     } else {
+      sessionStorage.setItem('path', `${to.path}`)
       next()
     }
   } else {
