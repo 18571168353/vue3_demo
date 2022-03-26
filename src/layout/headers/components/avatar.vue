@@ -20,7 +20,6 @@ const squareUrl = ref(
   'https://img0.baidu.com/it/u=661161858,172661768&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500'
 )
 const handleCommand = (command) => {
-  console.log(command)
   if (command === '退出') {
     ElMessageBox.confirm('此操作将退出系统', '提示', {
       confirmButtonText: '确定',
